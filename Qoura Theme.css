@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="PrayME">
+    <meta name="theme-color" content="#3B82F6">
+    <title>PrayME - Modern Forum Community</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Schema.org structured data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DiscussionForumPosting",
+      "name": "PrayME - Modern Forum Community",
+      "description": "Connect, share knowledge, and grow with our vibrant community of developers and enthusiasts.",
+      "url": "https://emissionhex.blogspot.com",
+      "publisher": {
+        "@type": "Organization",
+        "name": "PrayME",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4j-l_aM9GzVw5bFxy6hvLFmOaqH0TCTHweoQ5E2d4gtAon4IhJgifpLJUHiyjPTa9Wim_Uu8DsGeBTmDXHAWCWX0gIrk_3sUxor-Ra1D70c6OiDRmpVYKVNe-9DcNDYXcvBeif40YD_mPvZF35ayvDU5TPZSB5sztoLNBFkKj6Yk4v5_NalP41sct_Rw/s100-c-rw/no_image.webp"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://emissionhex.blogspot.com"
+      }
+    }
+    </script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        dark: '#1F2937',
+                        light: '#F9FAFB',
+                        accent: '#8B5CF6',
+                        // Colors for dark mode with good contrast
+                        darkBg: '#121212',
+                        darkCard: '#1E1E1E',
+                        darkText: '#E0E0E0',
+                        darkBorder: '#333333'
+                    }
+                }
+            }
+        }
+    </script>
+    <style type='text/css'>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Dark mode styles */
+        .dark {
+            background-color: #121212;
+            color: #E0E0E0;
+        }
+        
+        .dark .bg-white {
+            background-color: #1E1E1E;
+        }
+        
+        .dark .text-gray-800,
+        .dark .text-gray-600 {
+            color: #E0E0E0;
+        }
+        
+        .dark .bg-gray-50 {
+            background-color: #1A1A1A;
+        }
+        
+        .dark .border-gray-300,
+        .dark .border-b {
+            border-color: #333333;
+        }
+        
+        .dark .bg-gray-100 {
+            background-color: #2D2D2D;
+        }
+        
+        .dark .text-gray-600 {
+            color: #B0B0B0;
+        }
+        
+        .dark .hover\:bg-gray-50:hover {
+            background-color: #2A2A2A;
+        }
+        
+        .dark .hover\:bg-gray-100:hover {
+            background-color: #3A3A3A;
+        }
+        
+        .dark .bg-blue-100 {
+            background-color: #1E3A8A;
+        }
+        
+        .dark .text-blue-800 {
+            color: #93C5FD;
+        }
+        
+        .dark .hex-pattern {
+            background-image: 
+                linear-gradient(30deg, #2D2D2D 12%, transparent 12.5%, transparent 87%, #2D2D2D 87.5%, #2D2D2D),
+                linear-gradient(150deg, #2D2D2D 12%, transparent 12.5%, transparent 87%, #2D2D2D 87.5%, #2D2D2D),
+                linear-gradient(30deg, #2D2D2D 12%, transparent 12.5%, transparent 87%, #2D2D2D 87.5%, #2D2D2D),
+                linear-gradient(150deg, #2D2D2D 12%, transparent 12.5%, transparent 87%, #2D2D2D 87.5%, #2D2D2D),
+                linear-gradient(60deg, #1E1E1E 25%, transparent 25.5%, transparent 75%, #1E1E1E 75%, #1E1E1E),
+                linear-gradient(60deg, #1E1E1E 25%, transparent 25.5%, transparent 75%, #1E1E1E 75%, #1E1E1E);
+        }
+        
+        /* Theme toggle button */
+        .theme-toggle {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            background: transparent;
+            font-size: 1.5rem;
+            color: inherit;
+            border-radius: 50%;
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+        
+        .theme-toggle:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        
+        .dark .theme-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Smooth transition for theme change */
+        body, .bg-white, .bg-gray-50, .bg-gray-100, .text-gray-800, .text-gray-600 {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        /* TV-specific styles */
+        @media tv {
+            body {
+                font-size: 24px;
+            }
+            
+            .container {
+                max-width: 90%;
+            }
+            
+            button, .btn {
+                padding: 15px 30px;
+                font-size: 24px;
+            }
+            
+            h1, h2, h3, h4 {
+                font-size: 1.5em;
+            }
+            
+            .tv-hidden {
+                display: none;
+            }
+        }
+        
+        /* Smart TV navigation support */
+        @media screen and (min-width: 1920px) and (min-height: 1080px) {
+            .focusable {
+                outline: 3px solid transparent;
+                transition: outline 0.3s ease;
+            }
+            
+            .focusable:focus {
+                outline: 3px solid #3B82F6;
+            }
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .hex-pattern {
+            background-image: 
+                linear-gradient(30deg, #f3f4f6 12%, transparent 12.5%, transparent 87%, #f3f4f6 87.5%, #f3f4f6),
+                linear-gradient(150deg, #f3f4f6 12%, transparent 12.5%, transparent 87%, #f3f4f6 87.5%, #f3f4f6),
+                linear-gradient(30deg, #f3f4f6 12%, transparent 12.5%, transparent 87%, #f3f4f6 87.5%, #f3f4f6),
+                linear-gradient(150deg, #f3f4f6 12%, transparent 12.5%, transparent 87%, #f3f4f6 87.5%, #f3f4f6),
+                linear-gradient(60deg, #f9fafb 25%, transparent 25.5%, transparent 75%, #f9fafb 75%, #f9fafb),
+                linear-gradient(60deg, #f9fafb 25%, transparent 25.5%, transparent 75%, #f9fafb 75%, #f9fafb);
+            background-size: 40px 70px;
+            background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
+        }
+        
+        .category-badge {
+            transition: all 0.2s ease;
+        }
+        
+        .category-badge:hover {
+            background-color: #3B82F6;
+            color: white;
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Reputation Badges */
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 5px;
+        }
+        .badge-bronze { background-color: #cd7f32; color: white; }
+        .badge-silver { background-color: #c0c0c0; color: white; }
+        .badge-gold { background-color: #ffd700; color: black; }
+        .badge-platinum { background-color: #e5e4e2; color: black; }
+        .badge-diamond { background-color: #b9f2ff; color: black; }
+        
+        /* Reactions */
+        .reaction-btn {
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 4px 12px;
+            margin-right: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .reaction-btn:hover {
+            background: #e2e8f0;
+        }
+        .reaction-btn.active {
+            background: #dbeafe;
+            border-color: #3b82f6;
+        }
+        
+        /* Trending tags */
+        .trending-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin: 2px;
+            display: inline-block;
+        }
+        
+        /* User status indicators */
+        .user-status {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        }
+        .status-online { background-color: #10b981; }
+        .status-away { background-color: #f59e0b; }
+        .status-offline { background-color: #9ca3af; }
+        
+        /* Profile popups */
+        .profile-popup {
+            position: absolute;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            padding: 15px;
+            width: 250px;
+            z-index: 100;
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center focusable">
+                    <i class="fas fa-hexagon text-white text-xl"></i>
+                </div>
+                <h1 class="text-2xl font-bold text-blue-600">Pray<span class="text-green-500">ME</span></h1>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-gray-600 hover:text-blue-600 font-medium transition-colors focusable">Home</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 font-medium transition-colors focusable">Forum</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 font-medium transition-colors focusable">Community</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 font-medium transition-colors focusable">Developer</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 font-medium transition-colors focusable">Blogger</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 font-medium transition-colors focusable">Resources</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <!-- Theme Toggle Button -->
+                <button id="themeToggle" class="theme-toggle focusable" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+                
+                <div class="relative">
+                    <button class="text-gray-600 hover:text-blue-600 relative focusable">
+                        <i class="fas fa-bell text-xl"></i>
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </button>
+                    <!-- Notifications dropdown -->
+                    <div class="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-xl z-50 hidden tv-hidden">
+                        <div class="p-4 border-b">
+                            <h3 class="font-bold">Notifications</h3>
+                        </div>
+                        <div class="max-h-60 overflow-y-auto">
+                            <a href="#" class="block p-4 hover:bg-gray-50 border-b focusable">
+                                <p class="text-sm"><strong>User123</strong> replied to your thread</p>
+                                <p class="text-xs text-gray-500">5 minutes ago</p>
+                            </a>
+                            <a href="#" class="block p-4 hover:bg-gray-50 border-b focusable">
+                                <p class="text-sm">Your post received 10 upvotes</p>
+                                <p class="text-xs text-gray-500">1 hour ago</p>
+                            </a>
+                            <a href="#" class="block p-4 hover:bg-gray-50 focusable">
+                                <p class="text-sm">Welcome to PrayME! Check our guidelines</p>
+                                <p class="text-xs text-gray-500">2 days ago</p>
+                            </a>
+                        </div>
+                        <div class="p-2 border-t text-center">
+                            <a href="#" class="text-blue-600 text-sm focusable">View all notifications</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <button class="flex items-center space-x-2 focusable">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4j-l_aM9GzVw5bFxy6hvLFmOaqH0TCTHweoQ5E2d4gtAon4IhJgifpLJUHiyjPTa9Wim_Uu8DsGeBTmDXHAWCWX0gIrk_3sUxor-Ra1D70c6OiDRmpVYKVNe-9DcNDYXcvBeif40YD_mPvZF35ayvDU5TPZSB5sztoLNBFkKj6Yk4v5_NalP41sct_Rw/s100-c-rw/no_image.webp" 
+                             alt="User" class="w-8 h-8 rounded-full">
+                        <span class="hidden md:inline">JohnDoe</span>
+                        <i class="fas fa-caret-down text-sm"></i>
+                    </button>
+                    <!-- User dropdown -->
+                    <div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl z-50 hidden tv-hidden">
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 focusable"><i class="fas fa-user mr-2"></i>Profile</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 focusable"><i class="fas fa-cog mr-2"></i>Settings</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 focusable"><i class="fas fa-bookmark mr-2"></i>Saved Posts</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 border-t focusable"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a>
+                    </div>
+                </div>
+                
+                <button class="md:hidden text-gray-600 focusable">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Notification Banner -->
+    <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-4">
+        <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between">
+            <div class="flex items-center mb-2 sm:mb-0">
+                <i class="fas fa-bell mr-3 animate-pulse"></i>
+                <p><span class="font-bold">NEW:</span> Advanced forum features now available! Check out our trending topics</p>
+            </div>
+            <button class="text-white hover:text-gray-200 focusable">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hex-pattern py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-800">Modern <span class="text-blue-600">Forum</span> Community</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-6">Connect, share knowledge, and grow with our vibrant community of developers and enthusiasts.</p>
+            
+            <!-- Stats -->
+            <div class="flex flex-wrap justify-center gap-8 my-8">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-blue-600">12.5K+</div>
+                    <div class="text-gray-600">Active Members</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-green-500">45.2K+</div>
+                    <div class="text-gray-600">Discussions</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-purple-500">98%</div>
+                    <div class="text-gray-600">Satisfaction Rate</div>
+                </div>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center">
+                    <i class="fas fa-rocket mr-2"></i>Get Started
+                </button>
+                <button class="bg-white hover:bg-gray-100 text-blue-600 border border-blue-600 px-6 py-3 rounded-lg font-medium transition-colors flex items-center">
+                    <i class="fas fa-users mr-2"></i>Join Community
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Forum Search Bar -->
+    <div class="bg-white shadow-sm border-b">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-col md:flex-row gap-4 items-center">
+                <div class="flex-1 relative">
+                    <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                    <input type="text" placeholder="Search discussions, threads, and members..." 
+                           class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div class="flex gap-2">
+                    <div class="relative">
+                        <button class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg flex items-center">
+                            <i class="fas fa-filter mr-2"></i> Filters
+                        </button>
+                        <!-- Filter dropdown -->
+                        <div class="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-xl z-50 hidden">
+                            <div class="p-4">
+                                <h4 class="font-bold mb-2">Filter By:</h4>
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium mb-1">Category</label>
+                                    <select class="w-full border rounded p-2">
+                                        <option>All Categories</option>
+                                        <option>General Discussion</option>
+                                        <option>Theme Development</option>
+                                        <option>Help & Support</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium mb-1">Sort By</label>
+                                    <select class="w-full border rounded p-2">
+                                        <option>Most Recent</option>
+                                        <option>Most Popular</option>
+                                        <option>Most Replies</option>
+                                        <option>Most Views</option>
+                                    </select>
+                                </div>
+                                <div class="flex justify-between">
+                                    <button class="text-gray-600 px-3 py-1">Reset</button>
+                                    <button class="bg-blue-600 text-white px-4 py-1 rounded">Apply</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center">
+                        <i class="fas fa-search mr-2"></i> Search
+                    </button>
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center">
+                        <i class="fas fa-plus mr-2"></i> New Thread
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Trending Topics -->
+        <section class="mb-8 fade-in">
+            <div class="flex items-center mb-4">
+                <div class="h-8 w-2 bg-red-500 rounded-full mr-3"></div>
+                <h2 class="text-xl font-bold text-gray-800">Trending Topics</h2>
+            </div>
+            <div class="bg-white rounded-xl shadow-md p-4">
+                <div class="flex flex-wrap gap-2">
+                    <span class="trending-tag">Blogger Templates</span>
+                    <span class="trending-tag">SEO Tips</span>
+                    <span class="trending-tag">JavaScript</span>
+                    <span class="trending-tag">CSS Tricks</span>
+                    <span class="trending-tag">Responsive Design</span>
+                    <span class="trending-tag">AMP Pages</span>
+                    <span class="trending-tag">Monetization</span>
+                    <span class="trending-tag">Analytics</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Forum Categories Section -->
+        <section class="mb-8 fade-in">
+            <div class="flex items-center mb-6">
+                <div class="h-10 w-2 bg-blue-600 rounded-full mr-4"></div>
+                <h2 class="text-2xl font-bold text-gray-800">Forum Categories</h2>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <!-- Category Header -->
+                <div class="bg-gray-50 px-6 py-4 border-b">
+                    <div class="grid grid-cols-12 gap-4 text-sm font-medium text-gray-600">
+                        <div class="col-span-6">Category</div>
+                        <div class="col-span-2 text-center">Threads</div>
+                        <div class="col-span-2 text-center">Messages</div>
+                        <div class="col-span-2">Last Post</div>
+                    </div>
+                </div>
+                
+                <!-- Category Items -->
+                <div class="divide-y">
+                    <!-- Category 1 -->
+                    <div class="px-6 py-4 hover:bg-gray-50 transition-colors">
+                        <div class="grid grid-cols-12 gap-4 items-center">
+                            <div class="col-span-6">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-comments text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold">General Discussion</h3>
+                                        <p class="text-sm text-gray-600">Discuss general topics about blogging</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-2 text-center text-gray-600">1.2k</div>
+                            <div class="col-span-2 text-center text-gray-600">5.8k</div>
+                            <div class="col-span-2 text-sm text-gray-600">
+                                <div>by <span class="font-medium">User123</span> <span class="badge badge-gold">Gold</span></div>
+                                <div class="text-xs">2 hours ago</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Category 2 -->
+                    <div class="px-6 py-4 hover:bg-gray-50 transition-colors">
+                        <div class="grid grid-cols-12 gap-4 items-center">
+                            <div class="col-span-6">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-hands-helping text-green-600"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold">Berbagi Pengalaman</h3>
+                                        <p class="text-sm text-gray-600">Berbagi cerita dan pengalaman hidup yang bermanfaat</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-2 text-center text-gray-600">1.2k</div>
+                            <div class="col-span-2 text-center text-gray-600">4.8k</div>
+                            <div class="col-span-2 text-sm text-gray-600">
+                                <div>by CeritaHati</div>
+                                <div class="text-xs">Kemarin</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Category 3 -->
+                    <div class="px-6 py-4 hover:bg-gray-50 transition-colors">
+                        <div class="grid grid-cols-12 gap-4 items-center">
+                            <div class="col-span-6">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-frown text-purple-600"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold">Keluhan Hidup</h3>
+                                        <p class="text-sm text-gray-600">Wadah untuk berbagi keluhan dan beban hidup</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-2 text-center text-gray-600">980</div>
+                            <div class="col-span-2 text-center text-gray-600">3.1k</div>
+                            <div class="col-span-2 text-sm text-gray-600">
+                                <div>by PencariDamai</div>
+                                <div class="text-xs">1 jam yang lalu</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Discussions -->
+        <section class="mb-8 fade-in">
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center">
+                    <div class="h-10 w-2 bg-green-500 rounded-full mr-4"></div>
+                    <h2 class="text-2xl font-bold text-gray-800">Recent Discussions</h2>
+                </div>
+                <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View All →</a>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <!-- Threads Header -->
+                <div class="bg-gray-50 px-6 py-4 border-b">
+                    <div class="grid grid-cols-12 gap-4 text-sm font-medium text-gray-600">
+                        <div class="col-span-6">Thread</div>
+                        <div class="col-span-2 text-center">Replies</div>
+                        <div class="col-span-2 text-center">Views</div>
+                        <div class="col-span-2">Last Reply</div>
+                    </div>
+                </div>
+                
+                <!-- Thread Items -->
+                <div class="divide-y">
+                    <!-- Thread 1 -->
+                    <div class="px-6 py-4 hover:bg-gray-50 transition-colors">
+                        <div class="grid grid-cols-12 gap-4 items-center">
+                            <div class="col-span-6">
+                                <div class="flex items-start">
+                                    <div class="relative">
+                                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4j-l_aM9GzVw5bFxy6hvLFmOaqH0TCTHweoQ5E2d4gtAon4IhJgifpLJUHiyjPTa9Wim_Uu8DsGeBTmDXHAWCWX0gIrk_3sUxor-Ra1D70c6OiDRmpVYKVNe-9DcNDYXcvBeif40YD_mPvZF35ayvDU5TPZSB5sztoLNBFkKj6Yk4v5_NalP41sct_Rw/s100-c-rw/no_image.webp" 
+                                             alt="User" class="w-8 h-8 rounded-full mr-3">
+                                        <span class="user-status status-online absolute bottom-0 right-2"></span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold hover:text-blue-600 cursor-pointer">Butuh doa untuk ujian besok, teman-teman...</h3>
+                                        <p class="text-sm text-gray-600">Started by SemangatBelajar <span class="badge badge-silver">Silver</span> • 2 jam yang lalu</p>
+                                        <div class="flex mt-1">
+                                            <span class="reaction-btn active"><i class="fas fa-pray mr-1"></i> 42</span>
+                                            <span class="reaction-btn"><i class="fas fa-heart mr-1"></i> 8</span>
+                                            <span class="reaction-btn"><i class="fas fa-share-alt mr-1"></i> Bagikan</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-2 text-center text-gray-600">24</div>
+                            <div class="col-span-2 text-center text-gray-600">156</div>
+                            <div class="col-span-2">
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <div class="relative">
+                                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4j-l_aM9GzVw5bFxy6hvLFmOaqH0TCTHweoQ5E2d4gtAon4IhJgifpLJUHiyjPTa9Wim_Uu8DsGeBTmDXHAWCWX0gIrk_3sUxor-Ra1D70c6OiDRmpVYKVNe-9DcNDYXcvBeif40YD_mPvZF35ayvDU5TPZSB5sztoLNBFkKj6Yk4v5_NalP41sct_Rw/s100-c-rw/no_image.webp" 
+                                             alt="User" class="w-6 h-6 rounded-full mr-2">
+                                        <span class="user-status status-online absolute bottom-0 right-0"></span>
+                                    </div>
+                                    <span>WebMaster</span>
+                                </div>
+                                <div class="text-xs text-gray-500">30 minutes ago</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Thread 2 -->
+                    <div class="px-6 py-4 hover:bg-gray-50 transition-colors">
+                        <div class="grid grid-cols-12 gap-4 items-center">
+                            <div class="col-span-6">
+                                <div class="flex items-start">
+                                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4j-l_aM9GzVw5bFxy6hvLFmOaqH0TCTHweoQ5E2d4gtAon4IhJgifpLJUHiyjPTa9Wim_Uu8DsGeBTmDXHAWCWX0gIrk_3sUxor-Ra1D70c6OiDRmpVYKVNe-9DcNDYXcvBeif40YD_mPvZF35ayvDU5TPZSB5sztoLNBFkKj6Yk4v5_NalP41sct_Rw/s100-c-rw/no_image.webp" 
+                                         alt="User" class="w-8 h-8 rounded-full mr-3">
+                                    <div>
+                                        <h3 class="font-semibold hover:text-blue-600 cursor-pointer">Pengalaman saya saat pindah kerja selama pandemi</h3>
+                                        <p class="text-sm text-gray-600">Started by PencariJalan • Kemarin</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-2 text-center text-gray-600">42</div>
+                            <div class="col-span-2 text-center text-gray-600">289</div>
+                            <div class="col-span-2">
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4j-l_aM9GzVw5bFxy6hvLFmOaqH0TCTHweoQ5E2d4gtAon4IhJgifpLJUHiyjPTa9Wim_Uu8DsGeBTmDXHAWCWX0gIrk_3sUxor-Ra1D70c6OiDRmpVYKVNe-9DcNDYXcvBeif40YD_mPvZF35ayvDU5TPZSB5sztoLNBFkKj6Yk4v5_NalP41sct_Rw/s100-c-rw/no_image.webp" 
+                                         alt="User" class="w-6 h-6 rounded-full mr-2">
+                                    <span>MobileDev</span>
+                                </div>
+                                <div class="text-xs text-gray-500">2 hours ago</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section class="mb-16 fade-in">
+            <div class="flex items-center mb-8">
+                <div class="h-10 w-2 bg-blue-600 rounded-full mr-4"></div>
+                <h2 class="text-3xl font-bold text-gray-800">Community</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Community Item 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="relative">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4j-l_aM9GzVw5bFxy6hvLFmOaqH0TCTHweoQ5E2d4gtAon4IhJgifpLJUHiyjPTa9Wim_Uu8DsGeBTmDXHAWCWX0gIrk_3sUxor-Ra1D70c6OiDRmpVYKVNe-9DcNDYXcvBeif40YD_mPvZF35ayvDU5TPZSB5sztoLNBFkKj6Yk4v5_NalP41sct_Rw/s100-c-rw/no_image.webp" 
+                             alt="HexBoard Beta Released" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-medium px-2 py-1 rounded">
+                            <i class="fas fa-comment mr-1"></i> 2 1
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">HexBoard Beta Released</h3>
+                        <div class="flex items-center text-sm text-gray-600 mb-2">
+                            <span class="badge badge-gold">Featured</span>
+                            <span class="ml-2"><i class="fas fa-eye mr-1"></i> 1.2K views</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">New forum template for Blogger with modern design and features.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4j-l_aM9GzVw5bFxy6hvLFmOaqH0TCTHweoQ5E2d4gtAon4IhJgifpLJUHiyjPTa9Wim_Uu8DsGeBTmDXHAWCWX0gIrk_3sUxor-Ra1D70c6OiDRmpVYKVNe-9DcNDYXcvBeif40YD_mPvZF35ayvDU5TPZSB5sztoLNBFkKj6Yk4v5_NalP41sct_Rw/s100-c-rw/no_image.webp" 
+                                     alt="Author" class="w-6 h-6 rounded-full mr-2">
+                                <span class="text-sm">Admin</span>
+                            </div>
+                            <a href="https://emissionhex.blogspot.com/2025/04/hexboard-beta-released.html" class="text-blue-600 font-medium hover:underline flex items-center">
+                                Read more <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Community Item 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="relative">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiI4FTUb-Dfi8zoyic6bEM8il0AoA6C_QGISth72YaV4bD8xJrXbEVzkuKJj81-JppyXr572P6FsNA71aNFqYecYphqY7bvmVnoiRK196wGkowIUfayIMjyaPLDwMRvZMbosI4FkN-kwqsDl7Pt4xFKmPggC89mxnbZabv0Cce46VOPSAP90Dpog1HAZSm4/s100-c-rw/17.webp" 
+                             alt="KazeManga Template" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-medium px-2 py-1 rounded">
+                            <i class="fas fa-comment mr-1"></i> 3 60
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">KazeManga – Manga & Novel Template</h3>
+                        <div class="flex items-center mb-3">
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                            <span class="ml-2 text-xs text-gray-600">100%</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Complete template for manga and novel websites on Blogger.</p>
+                        <a href="https://emissionhex.blogspot.com/2025/04/demo-kazemanga-manga-novel-template.html" class="text-blue-600 font-medium hover:underline flex items-center">
+                            View Demo <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Community Item 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="relative">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3sopRLKkRDH72AnxAJDi1CSHNDE2E-gy-o5FeVyn1cI6lfrJcj5P4HCg71qu1_pJU2P8MjufS9v3sm0SQdtvOx_nY8vOubR54BTdAYvMoR9VxIXPAi_Kqq4_cSA6VIpwkCj0G3LSXDX4YrOz5rbuSRQWLomfm5sbzSkh_C1L9UNeOy_zUGQQx5xwzWQ/s100-c-rw/20240916_095641.webp" 
+                             alt="Introduction" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-medium px-2 py-1 rounded">
+                            <i class="fas fa-comment mr-1"></i> 4 4
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Perkenalan (Introduction)</h3>
+                        <p class="text-gray-600 mb-4">Member dapat memperkenalkan diri atau promosikan situs kalian.</p>
+                        <a href="https://emissionhex.blogspot.com/search/label/Perkenalan" class="text-blue-600 font-medium hover:underline flex items-center">
+                            Introduce Yourself <i class="fas fa-user-plus ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Developer Section -->
+        <section class="mb-16 fade-in">
+            <div class="flex items-center mb-8">
+                <div class="h-10 w-2 bg-green-500 rounded-full mr-4"></div>
+                <h2 class="text-3xl font-bold text-gray-800">Developer Resources</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Articles -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-semibold">Artikel (Articles)</h3>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded-full">14 2</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">Artikel menarik buat menambah wawasan seputar Blogger.</p>
+                    
+                    <div class="space-y-4 mt-6">
+                        <div class="flex items-start">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCpYZJSeNA4CfnziMiNYjgyZXR-lEwsAAvK3Ax9kji4_XVmriXKT9HyyfwG0MezB5ppiDnO8zTRXTfLMdMQk4SFoB44TgJ4MZDIRCSQc90R7-XDvZ5aYRo6J7sXkSMgeH1as-qRdzhcgCEWJIW96PWzeWXzIYRFQfa7GAQQ5zNQ-CRW_GNbT1eVdQATw/s100-c-rw/a2d6175edcd2c3d7fb.gradio.live_.webp" 
+                                 alt="Gemini AI Subtitle Translator" class="w-16 h-16 object-cover rounded-lg mr-4">
+                            <div>
+                                <h4 class="font-medium">Gemini AI Subtitle Translator</h4>
+                                <p class="text-sm text-gray-500">Terjemahkan Subtitle Otomatis Dengan AI</p>
+                                <a href="https://emissionhex.blogspot.com/2025/08/gemini-ai-subtitle-translator.html" class="text-blue-600 text-sm hover:underline">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="https://emissionhex.blogspot.com/search/label/Artikel" class="mt-4 inline-block text-blue-600 font-medium hover:underline flex items-center">
+                        View all articles <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+                
+                <!-- Themes -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-semibold">Tema (Themes)</h3>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded-full">28</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">Various themes for different types of Blogger websites.</p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <a href="https://emissionhex.blogspot.com/search/label/Tema%2BFansub" class="category-badge bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Fansub</a>
+                        <a href="https://emissionhex.blogspot.com/search/label/Tema%2BForum" class="category-badge bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Forum</a>
+                        <a href="https://emissionhex.blogspot.com/search/label/Tema%2BManga" class="category-badge bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Manga</a>
+                        <a href="https://emissionhex.blogspot.com/search/label/Tema%2BNovel" class="category-badge bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Novel</a>
+                        <a href="https://emissionhex.blogspot.com/search/label/Tema%2BPelacak" class="category-badge bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Pelacak</a>
+                        <a href="https://emissionhex.blogspot.com/search/label/Tema%2BPremium" class="category-badge bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Premium</a>
+                        <a href="https://emissionhex.blogspot.com/search/label/Tema%2BStream" class="category-badge bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Stream</a>
+                    </div>
+                    
+                    <div class="mt-4 border-t pt-4">
+                        <div class="flex items-start">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5MpbLPl_32loA5QmkQPbwFm33bo9sBW42ORZKBTzsRf8t_MLgopkARFAmo8SlbJafgyCIX96eGgPtz6V6lvABRD38z09fKkAx3gHjP5DPJzMBQMTk1Yw1V3EpoFPMhjSFDC22VWNdNYAXlYxXNKFRYaXMhpD4ZbpUft5eXXYt884h-oQYt3CEgnpk1LWT/s100-c-rw/1000869269.webp" 
+                                 alt="Aniyour Source Code" class="w-16 h-16 object-cover rounded-lg mr-4">
+                            <div>
+                                <h4 class="font-medium">Aniyour Source Code Streaming Anime</h4>
+                                <p class="text-sm text-gray-500">Source code for anime streaming website</p>
+                                <a href="https://emissionhex.blogspot.com/2025/08/aniyour-source-code-streaming-anime.html" class="text-blue-600 text-sm hover:underline">View details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Blogger Section -->
+        <section class="fade-in">
+            <div class="flex items-center mb-8">
+                <div class="h-10 w-2 bg-purple-600 rounded-full mr-4"></div>
+                <h2 class="text-3xl font-bold text-gray-800">Blogger Tools</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Attribut -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-code text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Attribut</h3>
+                    <p class="text-gray-600 mb-4">Atribut adalah elemen tambahan untuk memberikan Ekspresi Blogger</p>
+                    <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2 py-1 rounded-full">5 items</span>
+                    <a href="https://emissionhex.blogspot.com/search/label/Attribut" class="mt-4 inline-block text-purple-600 font-medium hover:underline">
+                        Explore Attributes
+                    </a>
+                </div>
+                
+                <!-- Operator -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-cogs text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Operator</h3>
+                    <p class="text-gray-600 mb-4">Operator Blogger yang dipakai dalam bahasa scripting XML Blogger</p>
+                    <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2 py-1 rounded-full">11 items</span>
+                    <a href="https://emissionhex.blogspot.com/search/label/Operator" class="mt-4 inline-block text-blue-600 font-medium hover:underline">
+                        Explore Operators
+                    </a>
+                </div>
+                
+                <!-- Tag -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tags text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Tag</h3>
+                    <p class="text-gray-600 mb-4">Tag Blogger adalah tag khusus yang digunakan dalam Bahasa scripting XML Blogger.</p>
+                    <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2 py-1 rounded-full">14 1</span>
+                    <a href="https://emissionhex.blogspot.com/search/label/Tag" class="mt-4 inline-block text-green-600 font-medium hover:underline">
+                        Explore Tags
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Online Users Panel -->
+    <div class="bg-white shadow-md border-t mt-12">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <span class="text-green-500 mr-2">●</span>
+                    <span class="text-gray-600 font-medium">Online: 247 users</span>
+                </div>
+                <div class="flex items-center space-x-4 text-sm text-gray-600">
+                    <span>Members: 5,892</span>
+                    <span>Threads: 12,456</span>
+                    <span>Posts: 89,234</span>
+                    <span>Latest: NewMember</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-hexagon text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Emission<span class="text-green-400">Hex</span></h3>
+                    </div>
+                    <p class="text-gray-400">Blogger resources, themes, and community for developers and enthusiasts.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Themes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Widgets</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tutorials</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Community</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Forum</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Requests</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Introductions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contributors</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Subscribe</h4>
+                    <p class="text-gray-400 mb-4">Get updates on new themes and resources</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email" class="bg-gray-700 text-white px-4 py-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-full">
+                        <button class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-r-lg transition-colors">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400">© 2025 PrayME. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple fade-in animation for sections when scrolling
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transition = 'opacity 0.5s ease-in';
+                observer.observe(element);
+            });
+
+            // Forum functionality
+            const threadTitles = document.querySelectorAll('.font-semibold.hover\\:text-blue-600');
+            threadTitles.forEach(title => {
+                title.addEventListener('click', function() {
+                    alert('Thread discussion would open here. In a real implementation, this would load the thread content.');
+                });
+            });
+
+            // New Thread button
+            const newThreadBtn = document.querySelector('button:contains("New Thread")');
+            if (newThreadBtn) {
+                newThreadBtn.addEventListener('click', function() {
+                    alert('New thread creation form would open here. Users would need to be logged in.');
+                });
+            }
+        });
+        
+        // Simulate forum using Blogger comments
+        function initForumFromComments() {
+            // This would fetch comments from Blogger API in real implementation
+            console.log("Initializing forum from Blogger comments...");
+            
+            // Example structure:
+            // - Blog post = Forum Category
+            // - Top-level comment = Thread
+            // - Replies to comment = Thread replies
+            
+            // Mock data simulating Blogger comment structure
+            const mockComments = [
+                {
+                    id: "1",
+                    author: "User123",
+                    content: "How to customize Blogger theme for better SEO?",
+                    timestamp: "3 hours ago",
+                    replies: [
+                        {
+                            id: "1-1",
+                            author: "WebMaster",
+                            content: "Great question! Here are some tips...",
+                            timestamp: "30 minutes ago"
+                        }
+                    ]
+                }
+            ];
+            
+            // In a real implementation, this would:
+            // 1. Fetch blog posts (categories)
+            // 2. For each post, fetch comments (threads)
+            // 3. For each comment, fetch replies (replies)
+            // 4. Render as forum UI
+        }
+        
+        // Call initialization
+        initForumFromComments();
+    </script>
+    <script>
+        // Theme toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const htmlElement = document.documentElement;
+            
+            // Check for saved theme preference or respect OS preference
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            // Set initial theme
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                htmlElement.classList.add('dark');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+            
+            // Toggle theme on button click
+            themeToggle.addEventListener('click', function() {
+                if (htmlElement.classList.contains('dark')) {
+                    htmlElement.classList.remove('dark');
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    htmlElement.classList.add('dark');
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
