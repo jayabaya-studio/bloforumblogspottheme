@@ -1,4 +1,4 @@
-# bloforumblogspottheme
+# bloforum blogspot theme
 # Simple Blogspot Forum Q and A Template
 
 A minimal, open-source Blogspot template designed to be lightweight, mobile-friendly, and easy to customize.
